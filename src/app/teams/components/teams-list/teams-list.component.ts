@@ -1,8 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { TeamListItemModel } from '../../models/team-list-item.model';
 
 @Component({
   selector: 'app-teams-list',
@@ -11,4 +13,7 @@ import {
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TeamsListComponent {}
+export class TeamsListComponent {
+  @Input()
+  teamListItems: TeamListItemModel[] | null;
+}
