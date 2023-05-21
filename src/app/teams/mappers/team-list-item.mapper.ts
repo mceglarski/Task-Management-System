@@ -7,8 +7,8 @@ export namespace TeamListItemMapper {
   ): TeamListItemModel[] {
     return teams.map((team: TeamModel) => ({
       name: team.name,
-      membersCounter: team.members.length,
-      projectsCounter: team.projects.length,
+      membersNumber: team.members.length,
+      projectsNumber: team.projects.length,
     }));
   }
 }

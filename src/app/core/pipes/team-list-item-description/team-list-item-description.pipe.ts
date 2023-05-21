@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {TeamListItemModel} from "../../../teams/models/team-list-item.model";
 
 @Pipe({ name: 'teamItemDescription' })
 export class TeamListItemDescriptionPipe implements PipeTransform {
-  transform(projectCounter: number, memberCounter: number): string {
-    const projectText = projectCounter === 1 ? 'Project' : 'Projects';
-    const memberText = memberCounter === 1 ? 'Member' : 'Members';
+  transform(team: TeamListItemModel): string {
+    const projectText = team.projectsNumber === 1 ? 'Project' : 'Projects';
+    const memberText = team.membersNumber === 1 ? 'Member' : 'Members';
 
-    return `${projectCounter} ${projectText}, ${memberCounter} ${memberText}`;
+    return `${team.projectsNumber} ${projectText}, ${team.membersNumber} ${memberText}`;
   }
 }

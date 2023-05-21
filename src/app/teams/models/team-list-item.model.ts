@@ -1,5 +1,5 @@
 export interface TeamListItemModel {
   readonly name: string;
-  readonly membersCounter: number;
-  readonly projectsCounter: number;
+  readonly membersNumber: number;
+  readonly projectsNumber: number;
 }

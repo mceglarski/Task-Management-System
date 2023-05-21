@@ -2,9 +2,7 @@
   <div class="col-md-6" *ngFor="let team of teamListItems">
     <app-card-item
       [cardTitle]="team.name"
-      [cardSubtitle]="
-        team.projectsCounter | teamItemDescription : team.membersCounter
-      "
+      [cardSubtitle]="team | teamItemDescription"
     ></app-card-item>
   </div>
 </div>
