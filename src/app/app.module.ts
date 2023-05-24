@@ -14,6 +14,8 @@ import { TeamsEffects } from './state/store/teams/store/teams.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { reducers } from './state/app.state';
 import { ProjectsEffects } from './state/store/projects/store/projects.effects';
+import { TasksEffects } from './state/store/tasks/store/tasks.effects';
+import { ChecklistEffects } from './state/store/checklist/store/checklist.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,7 +29,12 @@ import { ProjectsEffects } from './state/store/projects/store/projects.effects';
       logOnly: environment.production,
       autoPause: true,
     }),
-    EffectsModule.forRoot([TeamsEffects, ProjectsEffects]),
+    EffectsModule.forRoot([
+      TeamsEffects,
+      ProjectsEffects,
+      TasksEffects,
+      ChecklistEffects,
+    ]),
     RouterOutlet,
     NavSidebarComponentModule,
     NavTopBarComponentModule,

@@ -3,7 +3,7 @@
     <app-card-item-progress
       [percentage]="project.percentage"
       [cardTitle]="project.name"
-      [cardSubtitle]="project | projectItemDescription"
+      [cardSubtitle]="project.dueDate | dueTime"
     ></app-card-item-progress>
   </div>
 </div>
