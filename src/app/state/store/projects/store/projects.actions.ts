@@ -2,21 +2,21 @@ import { createAction, props } from '@ngrx/store';
 import { ProjectModel } from '../../../models/project.model';
 
 export enum ProjectsActionsTypes {
-  LoadProjectRequest = '[Project Page] Load Project Request',
-  LoadProjectSuccess = '[Project Page] Load Project Success',
-  LoadProjectFailure = '[Project Page] Load Project Failure',
+  LoadProjectsRequest = '[Project Page] Load Projects Request',
+  LoadProjectsSuccess = '[Project Page] Load Projects Success',
+  LoadProjectsFailure = '[Project Page] Load Projects Failure',
 }
 
 export const loadProjects = createAction(
-  ProjectsActionsTypes.LoadProjectRequest
+  ProjectsActionsTypes.LoadProjectsRequest
 );
 
 export const loadProjectsSuccess = createAction(
-  ProjectsActionsTypes.LoadProjectSuccess,
+  ProjectsActionsTypes.LoadProjectsSuccess,
   props<{ projects: ProjectModel[] }>()
 );
 
 export const loadProjectsFailure = createAction(
-  ProjectsActionsTypes.LoadProjectFailure,
+  ProjectsActionsTypes.LoadProjectsFailure,
   props<{ error: string }>()
 );

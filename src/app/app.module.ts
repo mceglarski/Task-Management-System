@@ -16,6 +16,7 @@ import { reducers } from './state/app.state';
 import { ProjectsEffects } from './state/store/projects/store/projects.effects';
 import { TasksEffects } from './state/store/tasks/store/tasks.effects';
 import { ChecklistEffects } from './state/store/checklist/store/checklist.effects';
+import { EmployeesEffects } from './state/store/employees/store/employees.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -34,6 +35,7 @@ import { ChecklistEffects } from './state/store/checklist/store/checklist.effect
       ProjectsEffects,
       TasksEffects,
       ChecklistEffects,
+      EmployeesEffects,
     ]),
     RouterOutlet,
     NavSidebarComponentModule,
