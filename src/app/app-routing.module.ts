@@ -10,6 +10,11 @@ const routes: Route[] = [
         loadChildren: () =>
           import('./teams/teams.module').then((m) => m.TeamsModule),
       },
+      {
+        path: 'projects',
+        loadChildren: () =>
+          import('./projects/projects.module').then((m) => m.ProjectsModule),
+      },
     ],
   },
 ];

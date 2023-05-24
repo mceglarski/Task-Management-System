@@ -12,7 +12,8 @@ import { NavTopBarComponentModule } from './core/components/nav-top-bar/nav-top-
 import { EffectsModule } from '@ngrx/effects';
 import { TeamsEffects } from './state/store/teams/store/teams.effects';
 import { HttpClientModule } from '@angular/common/http';
-import { teamsReducer } from './state/store/teams/store/teams.reducer';
+import { reducers } from './state/app.state';
+import { ProjectsEffects } from './state/store/projects/store/projects.effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,13 +21,13 @@ import { teamsReducer } from './state/store/teams/store/teams.reducer';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({ teams: teamsReducer }),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
       autoPause: true,
     }),
-    EffectsModule.forRoot([TeamsEffects]),
+    EffectsModule.forRoot([TeamsEffects, ProjectsEffects]),
     RouterOutlet,
     NavSidebarComponentModule,
     NavTopBarComponentModule,

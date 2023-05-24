@@ -9,7 +9,7 @@ export const initialState: TeamsState = {
   status: StatusTypes.Pending,
 };
 
-export const teamsReducer = createReducer(
+export const teamsReducers = createReducer(
   initialState,
   on(loadTeams, (state) => ({ ...state, status: StatusTypes.Loading })),
   on(loadTeamsSuccess, (state, { teams }) => ({

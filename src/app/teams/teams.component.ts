@@ -19,7 +19,7 @@ import { TeamListItemModel } from './models/team-list-item.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TeamsComponent {
-  public allTeams$: Observable<TeamListItemModel[]> = this._store
+  public readonly allTeams$: Observable<TeamListItemModel[]> = this._store
     .select(selectAllTeams)
     .pipe(map(TeamListItemMapper.teamModelToListItemMapper));
 
