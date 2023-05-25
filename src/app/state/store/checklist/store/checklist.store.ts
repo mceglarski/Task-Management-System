@@ -1,8 +1,8 @@
 import { StatusTypes } from '../../../common/status.types';
-import { ChecklistModel } from '../../../models/checklist.model';
+import { CheckListModel } from '../../../models/check-list.model';
 
 export interface ChecklistState {
-  readonly checkList: ChecklistModel[];
+  readonly checkList: CheckListModel[];
   readonly error: string | null;
   readonly status: StatusTypes;
 }

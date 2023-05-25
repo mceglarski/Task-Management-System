@@ -1,0 +1,39 @@
+<div class="card-list-body">
+  <div class="card card-task">
+    <div class="progress">
+      <div
+        class="progress-bar"
+        [ngClass]="getCheckListProgressClass(checkList)"
+        [style.width]="calculateCheckListProgress(checkList) + '%'"
+        role="progressbar"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+    <div class="card-body">
+      <div class="card-title">
+        <a href="#"
+          ><h6 data-filter-by="text">{{ cardTitle }}</h6></a
+        >
+        <p class="card-text">{{ cardSubtitle }}</p>
+      </div>
+      <div class="card-meta">
+        <ul class="avatars">
+          <li *ngFor="let emp of employee">
+            <a href="#" data-toggle="tooltip" [title]="emp?.firstName">
+              <img
+                class="avatar"
+                [alt]="emp?.firstName + ' ' + emp?.lastName"
+                [src]="emp?.avatarUrl"
+              />
+            </a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center">
+          <i class="material-icons">playlist_add_check</i>
+          <span>{{ checkList | checkListProgress }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

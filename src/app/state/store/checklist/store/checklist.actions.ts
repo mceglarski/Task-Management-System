@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { ChecklistModel } from '../../../models/checklist.model';
+import { CheckListModel } from '../../../models/check-list.model';
 
 export enum CheckListActionsTypes {
   LoadCheckListRequest = '[CheckList] Load CheckList Request',
@@ -13,7 +13,7 @@ export const loadCheckList = createAction(
 
 export const loadCheckListSuccess = createAction(
   CheckListActionsTypes.LoadCheckListSuccess,
-  props<{ checkList: ChecklistModel[] }>()
+  props<{ checkList: CheckListModel[] }>()
 );
 
 export const loadCheckListFailure = createAction(

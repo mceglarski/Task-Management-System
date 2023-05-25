@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../../../../environments/environment';
-import { ChecklistModel } from '../../../models/checklist.model';
+import { CheckListModel } from '../../../models/check-list.model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +10,8 @@ import { ChecklistModel } from '../../../models/checklist.model';
 export class ChecklistService {
   constructor(private readonly _http: HttpClient) {}
 
-  public getCheckList(): Observable<ChecklistModel[]> {
-    return this._http.get<ChecklistModel[]>(
+  public getCheckList(): Observable<CheckListModel[]> {
+    return this._http.get<CheckListModel[]>(
       `${environment.apiCheckListUrl}/checklist-items`
     );
   }

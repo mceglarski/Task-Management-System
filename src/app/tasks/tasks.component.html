@@ -4,6 +4,7 @@
       <h1 class="display-4 mb-3">Tasks</h1>
       <p class="lead">You can browse through tasks below</p>
       <hr />
+      <app-tasks-list [taskListItems]="(taskList$ | async)!"></app-tasks-list>
     </section>
   </div>
 </div>
