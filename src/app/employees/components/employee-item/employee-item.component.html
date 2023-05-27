@@ -8,6 +8,72 @@
           [imageUrl]="emp.avatarUrl"
         ></app-media-header>
       </div>
+      <ul class="nav nav-tabs nav-fill" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            data-toggle="tab"
+            href="#teams"
+            role="tab"
+            aria-controls="teams"
+            aria-selected="true"
+          >Teams</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-toggle="tab"
+            href="#projects"
+            role="tab"
+            aria-controls="projects"
+            aria-selected="false"
+          >Projects</a
+          >
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div
+          class="tab-pane fade show active"
+          id="teams"
+          role="tabpanel"
+          data-filter-list="content-list-body"
+        >
+          <div class="row content-list-head">
+            <div class="col-auto">
+              <h3>Teams</h3>
+            </div>
+          </div>
+          <div class="content-list-body row">
+            <div class="col-md-6" *ngFor="let team of teams$ | async">
+              <app-card-item
+                [cardTitle]="team.name"
+                [cardSubtitle]="team | teamItemDescription"
+                [members]="team.members"
+              ></app-card-item>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="tab-pane fade"
+          id="projects"
+          role="tabpanel"
+          data-filter-list="content-list-body"
+        >
+          <div class="content-list">
+            <div class="row content-list-head">
+              <div class="col-auto">
+                <h3>Projects</h3>
+              </div>
+            </div>
+            <div class="content-list-body row">
+              <div class="col-lg-6">a</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

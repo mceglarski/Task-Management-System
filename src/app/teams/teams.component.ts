@@ -31,7 +31,7 @@ export class TeamsComponent {
 
   public readonly allTeams$: Observable<TeamListItemModel[]> = this._store
     .select(selectAllTeams)
-    .pipe(map(TeamListItemMapper.teamModelToListItemMapper));
+    .pipe(map(TeamListItemMapper.teamsModelToListItemMapper));
 
   constructor(private readonly _store: Store<AppState>) {
     this._store.dispatch(loadTeams());

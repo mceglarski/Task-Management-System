@@ -1,6 +1,7 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  OnDestroy,
   ViewEncapsulation,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -11,8 +12,10 @@ import {
   combineLatest,
   map,
   Observable,
+  Subject,
   switchMap,
   take,
+  takeUntil,
   tap,
 } from 'rxjs';
 import { EmployeeItemModel } from '../../../shared/employees/models/employee-item.model';
@@ -23,6 +26,15 @@ import {
 import { EmployeeListItemMapper } from '../../../shared/employees/mappers/employee-list-item.mapper';
 import { StatusTypes } from '../../../state/common/status.types';
 import { ActivatedRoute } from '@angular/router';
+import {
+  selectTeamsByMemberId,
+  selectTeamsStatus,
+} from '../../../state/store/teams/store/teams.selectors';
+import { loadTeams } from '../../../state/store/teams/store/teams.actions';
+import { selectProjectsStatus } from '../../../state/store/projects/store/projects.selectors';
+import { loadProjects } from '../../../state/store/projects/store/projects.actions';
+import { TeamListItemMapper } from '../../../shared/teams/mappers/team-list-item.mapper';
+import { TeamMembersItemModel } from '../../../shared/teams/models/team-members-item.model';
 
 @Component({
   selector: 'app-employee-item',
@@ -31,7 +43,7 @@ import { ActivatedRoute } from '@angular/router';
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeItemComponent {
+export class EmployeeItemComponent implements OnDestroy {
   private readonly _empIdSubject: BehaviorSubject<string> =
     new BehaviorSubject<string>('');
   private readonly _empId$: Observable<string> =
@@ -47,16 +59,29 @@ export class EmployeeItemComponent {
     )
   );
 
+  public readonly teams$: Observable<TeamMembersItemModel[]> = combineLatest([
+    this._empId$,
+  ]).pipe(
+    switchMap(([empId]) =>
+      this._store
+        .select(selectTeamsByMemberId(empId))
+        .pipe(map(TeamListItemMapper.teamsModelToMemberItemMapper))
+    )
+  );
+
+  private _unsubscribe$ = new Subject<void>();
+
   constructor(
     private readonly _store: Store<AppState>,
     private readonly _route: ActivatedRoute
   ) {
     this._route.params
       .pipe(
-        take(1),
+        takeUntil(this._unsubscribe$),
         tap((params) => this._empIdSubject.next(params['id']))
       )
       .subscribe();
+
     this._store
       .select(selectEmployeesStatus)
       .pipe(
@@ -68,5 +93,34 @@ export class EmployeeItemComponent {
         })
       )
       .subscribe();
+
+    this._store
+      .select(selectTeamsStatus)
+      .pipe(
+        take(1),
+        tap((teamStatus: StatusTypes) => {
+          if (teamStatus !== StatusTypes.Success) {
+            this._store.dispatch(loadTeams());
+          }
+        })
+      )
+      .subscribe();
+
+    this._store
+      .select(selectProjectsStatus)
+      .pipe(
+        take(1),
+        tap((projectStatus: StatusTypes) => {
+          if (projectStatus !== StatusTypes.Success) {
+            this._store.dispatch(loadProjects());
+          }
+        })
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy() {
+    this._unsubscribe$.next();
+    this._unsubscribe$.complete();
   }
 }

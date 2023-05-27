@@ -3,17 +3,17 @@ import {
   Component,
   ViewEncapsulation,
 } from '@angular/core';
-import {BehaviorSubject, map, Observable} from 'rxjs';
-import {Store} from "@ngrx/store";
-import {AppState} from "../state/app.state";
-import {loadTeams} from "../state/store/teams/store/teams.actions";
-import {loadEmployees} from "../state/store/employees/store/employees.actions";
-import {TeamListItemModel} from "../shared/teams/models/team-list-item.model";
-import {selectAllTeams} from "../state/store/teams/store/teams.selectors";
-import {TeamListItemMapper} from "../shared/teams/mappers/team-list-item.mapper";
-import {EmployeeItemModel} from "../shared/employees/models/employee-item.model";
-import {selectAllEmployees} from "../state/store/employees/store/employees.selectors";
-import {EmployeeListItemMapper} from "../shared/employees/mappers/employee-list-item.mapper";
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../state/app.state';
+import { loadTeams } from '../state/store/teams/store/teams.actions';
+import { loadEmployees } from '../state/store/employees/store/employees.actions';
+import { TeamListItemModel } from '../shared/teams/models/team-list-item.model';
+import { selectAllTeams } from '../state/store/teams/store/teams.selectors';
+import { TeamListItemMapper } from '../shared/teams/mappers/team-list-item.mapper';
+import { EmployeeItemModel } from '../shared/employees/models/employee-item.model';
+import { selectAllEmployees } from '../state/store/employees/store/employees.selectors';
+import { EmployeeListItemMapper } from '../shared/employees/mappers/employee-list-item.mapper';
 
 @Component({
   selector: 'app-home',
@@ -35,11 +35,10 @@ export class HomeComponent {
 
   public readonly allTeams$: Observable<TeamListItemModel[]> = this._store
     .select(selectAllTeams)
-    .pipe(map(TeamListItemMapper.teamModelToListItemMapper));
-  public readonly allEmployees$: Observable<EmployeeItemModel[]> =
-    this._store
-      .select(selectAllEmployees)
-      .pipe(map(EmployeeListItemMapper.employeesToListItemMapper));
+    .pipe(map(TeamListItemMapper.teamsModelToListItemMapper));
+  public readonly allEmployees$: Observable<EmployeeItemModel[]> = this._store
+    .select(selectAllEmployees)
+    .pipe(map(EmployeeListItemMapper.employeesToListItemMapper));
 
   constructor(private readonly _store: Store<AppState>) {
     this._store.dispatch(loadTeams());

@@ -4,6 +4,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
+import { EmployeeItemModel } from '../../../employees/models/employee-item.model';
 
 @Component({
   selector: 'app-card-item',
@@ -17,4 +18,6 @@ export class CardItemComponent {
   public cardTitle: string;
   @Input()
   public cardSubtitle: string;
+  @Input()
+  public members: EmployeeItemModel[];
 }
