@@ -6,6 +6,7 @@ export namespace TeamListItemMapper {
     teams: TeamModel[]
   ): TeamListItemModel[] {
     return teams.map((team: TeamModel) => ({
+      id: team.id,
       name: team.name,
       membersNumber: team.members.length,
       projectsNumber: team.projects.length,

@@ -12,21 +12,20 @@
     </div>
     <div class="card-body">
       <div class="card-title">
-        <a href="#"
-          ><h6 data-filter-by="text">{{ cardTitle }}</h6></a
-        >
+        <h6 data-filter-by="text">{{ cardTitle }}</h6>
         <p class="card-text">{{ cardSubtitle }}</p>
       </div>
       <div class="card-meta">
         <ul class="avatars">
           <li *ngFor="let emp of employee">
-            <a href="#" data-toggle="tooltip" [title]="emp?.firstName">
-              <img
-                class="avatar"
-                [alt]="emp?.firstName + ' ' + emp?.lastName"
-                [src]="emp?.avatarUrl"
-              />
-            </a>
+            <img
+              class="avatar"
+              redirectOnClick="/employee"
+              [id]="emp?.id"
+              [alt]="emp?.firstName + ' ' + emp?.lastName"
+              [title]="emp?.firstName"
+              [src]="emp?.avatarUrl"
+            />
           </li>
         </ul>
         <div class="d-flex align-items-center">

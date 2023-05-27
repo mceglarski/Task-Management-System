@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { CheckListItemModel } from '../../../tasks/models/checkList-item.model';
+import { CheckListItemModel } from '../../../../tasks/models/checkList-item.model';
 
 @Pipe({ name: 'checkListProgress' })
 export class CheckListProgressPipe implements PipeTransform {
