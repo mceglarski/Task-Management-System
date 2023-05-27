@@ -1,9 +1,11 @@
 <div class="row justify-content-center">
   <div class="col-lg-11 col-xl-9">
     <section class="py-4 py-lg-5">
-      <h1 class="display-4 mb-3">Teams</h1>
-      <p class="lead">You can browse through teams below</p>
-      <hr />
+      <app-page-header
+        [headerTitle]="pageTitle$ | async"
+        [headerSubtitle]="pageSubtitle$ | async"
+      >
+      </app-page-header>
       <app-teams-list [teamListItems]="allTeams$ | async"></app-teams-list>
     </section>
   </div>

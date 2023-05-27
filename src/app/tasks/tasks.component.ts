@@ -8,7 +8,7 @@ import { AppState } from '../state/app.state';
 import { loadTasks } from '../state/store/tasks/store/tasks.actions';
 import { loadCheckList } from '../state/store/checklist/store/checklist.actions';
 import { loadEmployees } from '../state/store/employees/store/employees.actions';
-import { combineLatest, map, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { TaskListItemModel } from './models/task-list-item.model';
 import { selectAllTasks } from '../state/store/tasks/store/tasks.selectors';
 import { selectAllCheckListItems } from '../state/store/checklist/store/checklist.selectors';
@@ -23,6 +23,16 @@ import { TaskListItemMapper } from './mappers/task-list-item.mapper';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TasksComponent {
+  private readonly _pageTitleSubject: BehaviorSubject<string> =
+    new BehaviorSubject<string>('Tasks');
+  public readonly pageTitle$: Observable<string> =
+    this._pageTitleSubject.asObservable();
+
+  private readonly _pageSubtitleSubject: BehaviorSubject<string> =
+    new BehaviorSubject<string>('You can browse through tasks below');
+  public readonly pageSubtitle$: Observable<string> =
+    this._pageSubtitleSubject.asObservable();
+
   public readonly taskList$: Observable<TaskListItemModel[]> = combineLatest([
     this._store.select(selectAllTasks),
     this._store.select(selectAllCheckListItems),

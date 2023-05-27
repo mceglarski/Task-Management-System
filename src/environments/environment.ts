@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  apiTeamUrl: 'https://6384fca14ce192ac60696c4b.mockapi.io',
-  apiProjectUrl: 'https://6384fca14ce192ac60696c4b.mockapi.io',
+  apiTeamUrl: 'https://646f899709ff19b120876fb8.mockapi.io',
+  apiProjectUrl: 'https://646f899709ff19b120876fb8.mockapi.io',
   apiTaskUrl: 'https://63810e439440b61b0d10b7c7.mockapi.io',
   apiCheckListUrl: 'https://63810e439440b61b0d10b7c7.mockapi.io',
-  apiEmployeeUrl: 'https://63810e439440b61b0d10b7c7.mockapi.io',
+  apiEmployeeUrl: 'https://646f899709ff19b120876fb8.mockapi.io',
 };
 
 /*

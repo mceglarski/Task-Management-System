@@ -4,8 +4,8 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { EmployeeListItemModel } from '../../models/employee-list-item.model';
-import { CheckListItemModel } from '../../models/checkList-item.model';
+import { EmployeeListItemModel } from '../../../tasks/models/employee-list-item.model';
+import { CheckListItemModel } from '../../../tasks/models/checkList-item.model';
 
 @Component({
   selector: 'app-card-item-checklist',
@@ -37,6 +37,7 @@ export class CardItemChecklistComponent {
   public getCheckListProgressClass(
     checkListElements: (CheckListItemModel | undefined)[]
   ): string {
+    console.log(this.checkList)
     if (this.calculateCheckListProgress(checkListElements) === 100) {
       return 'bg-primary';
     }
