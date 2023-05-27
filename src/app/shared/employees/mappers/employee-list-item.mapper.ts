@@ -1,10 +1,10 @@
 import { EmployeeModel } from '../../../state/models/employee.model';
-import { EmployeeListItemModel } from '../models/employee-list-item.model';
+import { EmployeeItemModel } from '../models/employee-item.model';
 
 export namespace EmployeeListItemMapper {
-  export function employeeToListItemMapper(
+  export function employeesToListItemMapper(
     employees: EmployeeModel[]
-  ): EmployeeListItemModel[] {
+  ): EmployeeItemModel[] {
     return employees.map((emp: EmployeeModel) => ({
       id: emp.id,
       firstName: emp.firstName,
@@ -12,5 +12,17 @@ export namespace EmployeeListItemMapper {
       position: emp.position,
       avatarUrl: emp.avatarUrl,
     }));
+  }
+
+  export function employeeToListItemMapper(
+    employee: EmployeeModel | undefined
+  ): EmployeeItemModel {
+    return {
+      id: employee?.id || '',
+      firstName: employee?.firstName || '',
+      lastName: employee?.lastName || '',
+      position: employee?.position || '',
+      avatarUrl: employee?.avatarUrl || '',
+    }
   }
 }

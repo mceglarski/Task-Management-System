@@ -6,7 +6,7 @@
     [id]="emp.id"
   >
     <app-simple-media-item
-      [title]="emp.firstName + ' ' + emp.lastName"
+      [title]="emp | employeeTitle"
       [subtitle]="emp.position"
       [imageUrl]="emp.avatarUrl"
     >

@@ -4,7 +4,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { EmployeeListItemModel } from '../../models/employee-list-item.model';
+import { EmployeeItemModel } from '../../models/employee-item.model';
 
 @Component({
   selector: 'app-employees-list',
@@ -15,5 +15,5 @@ import { EmployeeListItemModel } from '../../models/employee-list-item.model';
 })
 export class EmployeesListComponent {
   @Input()
-  employeeListItems: EmployeeListItemModel[] | null;
+  employeeListItems: EmployeeItemModel[] | null;
 }

@@ -11,7 +11,7 @@ import {loadEmployees} from "../state/store/employees/store/employees.actions";
 import {TeamListItemModel} from "../shared/teams/models/team-list-item.model";
 import {selectAllTeams} from "../state/store/teams/store/teams.selectors";
 import {TeamListItemMapper} from "../shared/teams/mappers/team-list-item.mapper";
-import {EmployeeListItemModel} from "../shared/employees/models/employee-list-item.model";
+import {EmployeeItemModel} from "../shared/employees/models/employee-item.model";
 import {selectAllEmployees} from "../state/store/employees/store/employees.selectors";
 import {EmployeeListItemMapper} from "../shared/employees/mappers/employee-list-item.mapper";
 
@@ -36,10 +36,10 @@ export class HomeComponent {
   public readonly allTeams$: Observable<TeamListItemModel[]> = this._store
     .select(selectAllTeams)
     .pipe(map(TeamListItemMapper.teamModelToListItemMapper));
-  public readonly allEmployees$: Observable<EmployeeListItemModel[]> =
+  public readonly allEmployees$: Observable<EmployeeItemModel[]> =
     this._store
       .select(selectAllEmployees)
-      .pipe(map(EmployeeListItemMapper.employeeToListItemMapper));
+      .pipe(map(EmployeeListItemMapper.employeesToListItemMapper));
 
   constructor(private readonly _store: Store<AppState>) {
     this._store.dispatch(loadTeams());
