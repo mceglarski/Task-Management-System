@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { NavSidebarComponent } from './nav-sidebar.component';
+import {RouterLinkWithHref} from "@angular/router";
 
 @NgModule({
-  imports: [],
+    imports: [
+        RouterLinkWithHref
+    ],
   declarations: [NavSidebarComponent],
   providers: [],
   exports: [NavSidebarComponent],

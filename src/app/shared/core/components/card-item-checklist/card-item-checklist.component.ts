@@ -37,7 +37,6 @@ export class CardItemChecklistComponent {
   public getCheckListProgressClass(
     checkListElements: (CheckListItemModel | undefined)[]
   ): string {
-    console.log(this.checkList)
     if (this.calculateCheckListProgress(checkListElements) === 100) {
       return 'bg-primary';
     }
