@@ -8,8 +8,8 @@ import { loadTeams } from '../state/store/teams/store/teams.actions';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { selectAllTeams } from '../state/store/teams/store/teams.selectors';
 import { AppState } from '../state/app.state';
-import { TeamListItemMapper } from './mappers/team-list-item.mapper';
-import { TeamListItemModel } from './models/team-list-item.model';
+import { TeamListItemMapper } from '../shared/teams/mappers/team-list-item.mapper';
+import { TeamListItemModel } from '../shared/teams/models/team-list-item.model';
 
 @Component({
   selector: 'app-teams',

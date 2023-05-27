@@ -1,4 +1,4 @@
-import { EmployeeModel } from '../../state/models/employee.model';
+import { EmployeeModel } from '../../../state/models/employee.model';
 import { EmployeeListItemModel } from '../models/employee-list-item.model';
 
 export namespace EmployeeListItemMapper {

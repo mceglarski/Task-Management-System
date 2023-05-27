@@ -3,7 +3,7 @@ import { ProjectsComponent } from './projects.component';
 import { CommonModule } from '@angular/common';
 import { ProjectsRoutingModule } from './projects-routing';
 import { ProjectsListComponentModule } from './components/projects-list/projects-list.component-module';
-import { PageHeaderComponentModule } from '../core/components/page-header/page-header.component-module';
+import { PageHeaderComponentModule } from '../shared/core/components/page-header/page-header.component-module';
 
 @NgModule({
   imports: [

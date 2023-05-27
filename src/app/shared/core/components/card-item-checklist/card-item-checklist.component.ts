@@ -4,8 +4,8 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { EmployeeTaskListItemModel } from '../../../tasks/models/employee-task-list-item.model';
-import { CheckListItemModel } from '../../../tasks/models/checkList-item.model';
+import { EmployeeTaskListItemModel } from '../../../../tasks/models/employee-task-list-item.model';
+import { CheckListItemModel } from '../../../../tasks/models/checkList-item.model';
 
 @Component({
   selector: 'app-card-item-checklist',

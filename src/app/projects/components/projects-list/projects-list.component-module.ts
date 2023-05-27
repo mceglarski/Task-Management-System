@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { ProjectsListComponent } from './projects-list.component';
 import { CommonModule } from '@angular/common';
-import { CardItemProgressComponentModule } from '../../../core/components/card-item-progress/card-item-progress.component-module';
-import { DueTimeModule } from '../../../core/pipes/due-time/due-time.module';
+import { CardItemProgressComponentModule } from '../../../shared/core/components/card-item-progress/card-item-progress.component-module';
+import { DueTimeModule } from '../../../shared/pipes/due-time/due-time.module';
 
 @NgModule({
   imports: [

@@ -1,4 +1,4 @@
-import { TeamModel } from '../../state/models/team.model';
+import { TeamModel } from '../../../state/models/team.model';
 import { TeamListItemModel } from '../models/team-list-item.model';
 
 export namespace TeamListItemMapper {

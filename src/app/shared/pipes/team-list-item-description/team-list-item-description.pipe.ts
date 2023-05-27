@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {TeamListItemModel} from "../../../teams/models/team-list-item.model";
+import {TeamListItemModel} from "../../teams/models/team-list-item.model";
 
 @Pipe({ name: 'teamItemDescription' })
 export class TeamListItemDescriptionPipe implements PipeTransform {

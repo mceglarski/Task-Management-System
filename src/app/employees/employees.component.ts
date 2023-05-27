@@ -7,9 +7,9 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { loadEmployees } from '../state/store/employees/store/employees.actions';
-import { EmployeeListItemMapper } from './mappers/employee-list-item.mapper';
+import { EmployeeListItemMapper } from '../shared/employees/mappers/employee-list-item.mapper';
 import { selectAllEmployees } from '../state/store/employees/store/employees.selectors';
-import { EmployeeListItemModel } from './models/employee-list-item.model';
+import { EmployeeListItemModel } from '../shared/employees/models/employee-list-item.model';
 
 @Component({
   selector: 'app-employees',
