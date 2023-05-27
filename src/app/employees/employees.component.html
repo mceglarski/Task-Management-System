@@ -6,6 +6,9 @@
         [headerSubtitle]="pageSubtitle$ | async"
       >
       </app-page-header>
+      <app-employees-list
+        [employeeListItems]="allEmployees$ | async"
+      ></app-employees-list>
     </section>
   </div>
 </div>

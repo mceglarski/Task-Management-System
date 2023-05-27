@@ -1,9 +1,9 @@
 import { CheckListItemModel } from './checkList-item.model';
-import { EmployeeListItemModel } from './employee-list-item.model';
+import { EmployeeTaskListItemModel } from './employee-task-list-item.model';
 
 export interface TaskListItemModel {
   readonly name: string;
   readonly dueDate: Date;
-  readonly employees: (EmployeeListItemModel | undefined)[];
+  readonly employees: (EmployeeTaskListItemModel | undefined)[];
   readonly checkList: (CheckListItemModel | undefined)[];
 }

@@ -4,7 +4,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { EmployeeListItemModel } from '../../../tasks/models/employee-list-item.model';
+import { EmployeeTaskListItemModel } from '../../../tasks/models/employee-task-list-item.model';
 import { CheckListItemModel } from '../../../tasks/models/checkList-item.model';
 
 @Component({
@@ -20,7 +20,7 @@ export class CardItemChecklistComponent {
   @Input()
   public cardSubtitle: string;
   @Input()
-  public employee: (EmployeeListItemModel | undefined)[];
+  public employee: (EmployeeTaskListItemModel | undefined)[];
   @Input()
   public checkList: (CheckListItemModel | undefined)[];
 

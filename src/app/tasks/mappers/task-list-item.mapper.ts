@@ -3,7 +3,7 @@ import { CheckListModel } from '../../state/models/check-list.model';
 import { EmployeeModel } from '../../state/models/employee.model';
 import { TaskListItemModel } from '../models/task-list-item.model';
 import { ChecklistItemMapper } from './checklist-item.mapper';
-import { EmployeeListItemMapper } from './employee-list-item.mapper';
+import { EmployeeTaskListItemMapper } from './employee-task-list-item.mapper';
 
 export namespace TaskListItemMapper {
   export function taskElementsToTaskListItemMapper(
@@ -15,7 +15,7 @@ export namespace TaskListItemMapper {
       name: task.name,
       dueDate: task.dueDate,
       employees: task.assigneeIds.map((employeeId: string) =>
-        EmployeeListItemMapper.employeeElementToListItemMapper(
+        EmployeeTaskListItemMapper.employeeElementToListItemMapper(
           employees.find((empItem) => empItem?.id === employeeId)
         )
       ),

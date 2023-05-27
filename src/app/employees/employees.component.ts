@@ -3,7 +3,13 @@ import {
   Component,
   ViewEncapsulation,
 } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { AppState } from '../state/app.state';
+import { loadEmployees } from '../state/store/employees/store/employees.actions';
+import { EmployeeListItemMapper } from './mappers/employee-list-item.mapper';
+import { selectAllEmployees } from '../state/store/employees/store/employees.selectors';
+import { EmployeeListItemModel } from './models/employee-list-item.model';
 
 @Component({
   selector: 'app-employees',
@@ -22,4 +28,13 @@ export class EmployeesComponent {
     new BehaviorSubject<string>('You can browse through employees below');
   public readonly pageSubtitle$: Observable<string> =
     this._pageSubtitleSubject.asObservable();
+
+  public readonly allEmployees$: Observable<EmployeeListItemModel[]> =
+    this._store
+      .select(selectAllEmployees)
+      .pipe(map(EmployeeListItemMapper.employeeToListItemMapper));
+
+  constructor(private readonly _store: Store<AppState>) {
+    this._store.dispatch(loadEmployees());
+  }
 }

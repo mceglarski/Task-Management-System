@@ -1,10 +1,10 @@
 import { EmployeeModel } from '../../state/models/employee.model';
-import { EmployeeListItemModel } from '../models/employee-list-item.model';
+import { EmployeeTaskListItemModel } from '../models/employee-task-list-item.model';
 
-export namespace EmployeeListItemMapper {
+export namespace EmployeeTaskListItemMapper {
   export function employeeElementToListItemMapper(
     employee: EmployeeModel | undefined
-  ): EmployeeListItemModel {
+  ): EmployeeTaskListItemModel {
     return {
       id: employee?.id,
       firstName: employee?.firstName,
