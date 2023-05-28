@@ -6,8 +6,8 @@ export namespace ChecklistItemMapper {
     checkList: CheckListModel | undefined
   ): ChecklistItemModel {
     return {
-      id: checkList?.id,
-      isDone: checkList?.isDone,
+      id: checkList?.id || '',
+      isDone: checkList?.isDone || false,
     };
   }
 }

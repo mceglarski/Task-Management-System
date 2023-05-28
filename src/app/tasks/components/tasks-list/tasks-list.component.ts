@@ -15,5 +15,5 @@ import { TaskListItemModel } from '../../models/task-list-item.model';
 })
 export class TasksListComponent {
   @Input()
-  taskListItems: TaskListItemModel[];
+  taskListItems: TaskListItemModel[] | null;
 }

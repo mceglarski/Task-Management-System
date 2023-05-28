@@ -1,6 +1,6 @@
 export interface EmployeeTaskListItemModel {
-  readonly id: string | undefined;
-  readonly firstName: string | undefined;
-  readonly lastName: string | undefined;
-  readonly avatarUrl: string | undefined;
+  readonly id: string;
+  readonly firstName: string;
+  readonly lastName: string;
+  readonly avatarUrl: string;
 }

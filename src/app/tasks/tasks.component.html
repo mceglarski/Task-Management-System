@@ -6,7 +6,8 @@
         [headerSubtitle]="pageSubtitle$ | async"
       >
       </app-page-header>
-      <app-tasks-list [taskListItems]="(taskList$ | async)!"></app-tasks-list>
+      <hr>
+      <app-tasks-list [taskListItems]="taskList$ | async"></app-tasks-list>
     </section>
   </div>
 </div>

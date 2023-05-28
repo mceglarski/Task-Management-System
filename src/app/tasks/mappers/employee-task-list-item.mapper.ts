@@ -6,10 +6,10 @@ export namespace EmployeeTaskListItemMapper {
     employee: EmployeeModel | undefined
   ): EmployeeTaskListItemModel {
     return {
-      id: employee?.id,
-      firstName: employee?.firstName,
-      lastName: employee?.lastName,
-      avatarUrl: employee?.avatarUrl,
+      id: employee?.id || '',
+      firstName: employee?.firstName || '',
+      lastName: employee?.lastName || '',
+      avatarUrl: employee?.avatarUrl || '',
     };
   }
 }

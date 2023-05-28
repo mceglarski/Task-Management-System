@@ -5,6 +5,7 @@ import { AvatarListComponentModule } from '../../../shared/core/components/avata
 import { CardItemComponentModule } from '../../../shared/core/components/card-item/card-item.component-module';
 import { CardItemWithChecklistComponentModule } from '../../../shared/core/components/card-item-with-checklist/card-item-with-checklist-component.module';
 import { DueTimeModule } from '../../../shared/core/pipes/due-time/due-time.module';
+import { PageHeaderComponentModule } from '../../../shared/core/components/page-header/page-header.component-module';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { DueTimeModule } from '../../../shared/core/pipes/due-time/due-time.modu
     CardItemComponentModule,
     CardItemWithChecklistComponentModule,
     DueTimeModule,
+    PageHeaderComponentModule,
   ],
   declarations: [TeamItemComponent],
   providers: [],
