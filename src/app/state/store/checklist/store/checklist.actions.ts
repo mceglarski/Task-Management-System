@@ -7,16 +7,16 @@ export enum CheckListActionsTypes {
   LoadCheckListFailure = '[CheckList] Load CheckList Failure',
 }
 
-export const loadCheckList = createAction(
+export const loadChecklist = createAction(
   CheckListActionsTypes.LoadCheckListRequest
 );
 
-export const loadCheckListSuccess = createAction(
+export const loadChecklistSuccess = createAction(
   CheckListActionsTypes.LoadCheckListSuccess,
   props<{ checkList: CheckListModel[] }>()
 );
 
-export const loadCheckListFailure = createAction(
+export const loadChecklistFailure = createAction(
   CheckListActionsTypes.LoadCheckListFailure,
   props<{ error: string }>()
 );

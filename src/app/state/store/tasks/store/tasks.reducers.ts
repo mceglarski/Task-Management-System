@@ -2,7 +2,7 @@ import { TasksState } from './tasks.store';
 import { StatusTypes } from '../../../common/status.types';
 import { createReducer, on } from '@ngrx/store';
 import { loadTasks, loadTasksSuccess } from './tasks.actions';
-import { loadCheckListFailure } from '../../checklist/store/checklist.actions';
+import { loadChecklistFailure } from '../../checklist/store/checklist.actions';
 
 export const initialState: TasksState = {
   tasks: [],
@@ -19,7 +19,7 @@ export const tasksReducers = createReducer(
     status: StatusTypes.Success,
     error: null,
   })),
-  on(loadCheckListFailure, (state, { error }) => ({
+  on(loadChecklistFailure, (state, { error }) => ({
     ...state,
     status: StatusTypes.Error,
     error: error,

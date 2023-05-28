@@ -2,9 +2,9 @@ import { ChecklistState } from './checklist.store';
 import { StatusTypes } from '../../../common/status.types';
 import { createReducer, on } from '@ngrx/store';
 import {
-  loadCheckList,
-  loadCheckListFailure,
-  loadCheckListSuccess,
+  loadChecklist,
+  loadChecklistFailure,
+  loadChecklistSuccess,
 } from './checklist.actions';
 
 export const initialState: ChecklistState = {
@@ -15,14 +15,14 @@ export const initialState: ChecklistState = {
 
 export const checkListReducers = createReducer(
   initialState,
-  on(loadCheckList, (state) => ({ ...state, status: StatusTypes.Loading })),
-  on(loadCheckListSuccess, (state, { checkList }) => ({
+  on(loadChecklist, (state) => ({ ...state, status: StatusTypes.Loading })),
+  on(loadChecklistSuccess, (state, { checkList }) => ({
     ...state,
     checkList: checkList,
     status: StatusTypes.Success,
     error: null,
   })),
-  on(loadCheckListFailure, (state, { error }) => ({
+  on(loadChecklistFailure, (state, { error }) => ({
     ...state,
     status: StatusTypes.Error,
     error: error,

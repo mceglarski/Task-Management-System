@@ -69,9 +69,13 @@
               </div>
             </div>
             <div class="content-list-body row">
-              <div class="col-lg-6">
-
-
+              <div class="col-lg-6" *ngFor="let project of projects$ | async">
+                <app-card-item-with-checklist
+                  [cardTitle]="project.name"
+                  [cardSubtitle]="project.dueDate | dueTimeDays"
+                  [checklistProgress]="project.checklist | checkListProgress"
+                >
+                </app-card-item-with-checklist>
               </div>
             </div>
           </div>

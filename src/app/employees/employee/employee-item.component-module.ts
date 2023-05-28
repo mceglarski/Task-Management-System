@@ -7,6 +7,9 @@ import { MediaHeaderComponentModule } from '../../shared/core/components/media-h
 import { EmployeeTitleModule } from '../../shared/core/pipes/employee-title/employee-title.module';
 import { CardItemComponentModule } from '../../shared/core/components/card-item/card-item.component-module';
 import { TeamListItemDescriptionModule } from '../../shared/core/pipes/team-list-item-description/team-list-item-description.module';
+import { CardItemWithChecklistComponentModule } from '../../shared/core/components/card-item-with-checklist/card-item-with-checklist-component.module';
+import { ChecklistProgressModule } from '../../shared/core/pipes/checklist-progress/checklist-progress.module';
+import { DueTimeDaysModule } from '../../shared/core/pipes/due-time-days/due-time-days.module';
 
 @NgModule({
   imports: [
@@ -17,6 +20,9 @@ import { TeamListItemDescriptionModule } from '../../shared/core/pipes/team-list
     EmployeeTitleModule,
     CardItemComponentModule,
     TeamListItemDescriptionModule,
+    CardItemWithChecklistComponentModule,
+    ChecklistProgressModule,
+    DueTimeDaysModule,
   ],
   declarations: [EmployeeItemComponent],
   providers: [],

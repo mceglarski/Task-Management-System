@@ -5,7 +5,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { EmployeeTaskListItemModel } from '../../../../tasks/models/employee-task-list-item.model';
-import { CheckListItemModel } from '../../../../tasks/models/checkList-item.model';
+import { ChecklistItemModel } from '../../../tasks/models/checklist-item.model';
 
 @Component({
   selector: 'app-card-long-item',
@@ -22,10 +22,10 @@ export class CardLongItemComponent {
   @Input()
   public employee: (EmployeeTaskListItemModel | undefined)[];
   @Input()
-  public checkList: (CheckListItemModel | undefined)[];
+  public checkList: (ChecklistItemModel | undefined)[];
 
   public calculateCheckListProgress(
-    checkListElements: (CheckListItemModel | undefined)[]
+    checkListElements: (ChecklistItemModel | undefined)[]
   ): number {
     return (
       (checkListElements.filter((element) => element?.isDone).length /
@@ -35,7 +35,7 @@ export class CardLongItemComponent {
   }
 
   public getCheckListProgressClass(
-    checkListElements: (CheckListItemModel | undefined)[]
+    checkListElements: (ChecklistItemModel | undefined)[]
   ): string {
     if (this.calculateCheckListProgress(checkListElements) === 100) {
       return 'bg-primary';

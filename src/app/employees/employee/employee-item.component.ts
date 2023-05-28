@@ -31,11 +31,28 @@ import {
   selectTeamsStatus,
 } from '../../state/store/teams/store/teams.selectors';
 import { loadTeams } from '../../state/store/teams/store/teams.actions';
-import { selectProjectsStatus } from '../../state/store/projects/store/projects.selectors';
+import {
+  selectProjectsByAssigneeId,
+  selectProjectsStatus,
+} from '../../state/store/projects/store/projects.selectors';
 import { loadProjects } from '../../state/store/projects/store/projects.actions';
 import { TeamListItemMapper } from '../../shared/teams/mappers/team-list-item.mapper';
 import { TeamMembersItemModel } from '../../shared/teams/models/team-members-item.model';
-import { ProjectListItemModel } from '../../projects/models/project-list-item.model';
+import {
+  selectAllTasks,
+  selectTasksStatus,
+} from '../../state/store/tasks/store/tasks.selectors';
+import { loadTasks } from '../../state/store/tasks/store/tasks.actions';
+import {
+  selectAllChecklistItems,
+  selectChecklistStatus,
+} from '../../state/store/checklist/store/checklist.selectors';
+import { loadChecklist } from '../../state/store/checklist/store/checklist.actions';
+import { ProjectChecklistItemModel } from '../../shared/projects/models/project-checklist-item.model';
+import { ProjectModel } from '../../state/models/project.model';
+import { TaskModel } from '../../state/models/task.model';
+import { CheckListModel } from '../../state/models/check-list.model';
+import { ProjectChecklistItemMapper } from '../../shared/projects/mappers/project-checklist-item.mapper';
 
 @Component({
   selector: 'app-employee-item',
@@ -70,15 +87,27 @@ export class EmployeeItemComponent implements OnDestroy {
     )
   );
 
-  // public readonly projects$: Observable<ProjectListItemModel[]> = combineLatest(
-  //   [this._empId$]
-  // ).pipe(
-  //   switchMap(([empId]) =>
-  //     this._store
-  //       .select(selectTeamsByMemberId(empId))
-  //       .pipe(map(TeamListItemMapper.teamsModelToMemberItemMapper))
-  //   )
-  // );
+  public readonly projects$: Observable<ProjectChecklistItemModel[]> =
+    combineLatest([
+      this._empId$,
+      this._store.select(selectAllTasks),
+      this._store.select(selectAllChecklistItems),
+    ]).pipe(
+      switchMap(
+        ([empId, tasks, checklists]: [string, TaskModel[], CheckListModel[]]) =>
+          this._store
+            .select(selectProjectsByAssigneeId(empId))
+            .pipe(
+              map((projects: ProjectModel[]) =>
+                ProjectChecklistItemMapper.projectsTasksChecklistsToProjectChecklistItemMapper(
+                  projects,
+                  tasks,
+                  checklists
+                )
+              )
+            )
+      )
+    );
 
   private _unsubscribe$ = new Subject<void>();
 
@@ -124,6 +153,30 @@ export class EmployeeItemComponent implements OnDestroy {
         tap((projectStatus: StatusTypes) => {
           if (projectStatus !== StatusTypes.Success) {
             this._store.dispatch(loadProjects());
+          }
+        })
+      )
+      .subscribe();
+
+    this._store
+      .select(selectTasksStatus)
+      .pipe(
+        take(1),
+        tap((projectStatus: StatusTypes) => {
+          if (projectStatus !== StatusTypes.Success) {
+            this._store.dispatch(loadTasks());
+          }
+        })
+      )
+      .subscribe();
+
+    this._store
+      .select(selectChecklistStatus)
+      .pipe(
+        take(1),
+        tap((projectStatus: StatusTypes) => {
+          if (projectStatus !== StatusTypes.Success) {
+            this._store.dispatch(loadChecklist());
           }
         })
       )
