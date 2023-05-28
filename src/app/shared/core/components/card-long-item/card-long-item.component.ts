@@ -8,13 +8,13 @@ import { EmployeeTaskListItemModel } from '../../../../tasks/models/employee-tas
 import { CheckListItemModel } from '../../../../tasks/models/checkList-item.model';
 
 @Component({
-  selector: 'app-card-item-checklist',
-  styleUrls: ['./card-item-checklist.component.scss'],
-  templateUrl: './card-item-checklist.component.html',
+  selector: 'app-card-long-item',
+  styleUrls: ['./card-long-item.component.scss'],
+  templateUrl: './card-long-item.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardItemChecklistComponent {
+export class CardLongItemComponent {
   @Input()
   public cardTitle: string;
   @Input()

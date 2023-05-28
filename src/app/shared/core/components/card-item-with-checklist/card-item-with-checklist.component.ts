@@ -6,17 +6,19 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-card-item-progress',
-  styleUrls: ['./card-item-progress.component.scss'],
-  templateUrl: './card-item-progress.component.html',
+  selector: 'app-card-item-with-checklist',
+  styleUrls: ['./card-item-with-checklist.component.scss'],
+  templateUrl: './card-item-with-checklist.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CardItemProgressComponent {
+export class CardItemWithChecklistComponent {
   @Input()
   public percentage: number;
   @Input()
   public cardTitle: string;
   @Input()
   public cardSubtitle: string;
+  @Input()
+  public checklistProgress: string;
 }

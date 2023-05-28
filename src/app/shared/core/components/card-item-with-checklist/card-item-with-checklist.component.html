@@ -1,0 +1,22 @@
+<div class="card mb-3">
+  <div class="progress">
+    <div
+      class="progress-bar bg-primary"
+      [style.width]="percentage + '%'"
+      role="progressbar"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    ></div>
+  </div>
+
+  <div class="card-body">
+    <a class="card-title h6">{{ cardTitle }}</a>
+    <div class="card-meta d-flex justify-content-between mt-2">
+      <div class="d-flex align-items-center" *ngIf="checklistProgress">
+        <i class="material-icons mr-1">playlist_add_check</i>
+        <span class="card-text">{{ checklistProgress }}</span>
+      </div>
+      <span class="card-text">{{ cardSubtitle }}</span>
+    </div>
+  </div>
+</div>

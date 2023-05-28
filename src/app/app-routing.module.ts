@@ -28,14 +28,16 @@ const routes: Route[] = [
       {
         path: 'employees',
         loadChildren: () =>
-          import('./employees/employees.module').then((m) => m.EmployeesModule),
+          import('./employees/employees-list/employees.module').then(
+            (m) => m.EmployeesModule
+          ),
       },
       {
         path: 'employee',
         loadChildren: () =>
-          import(
-            './employees/components/employee-item/employee-item.component-module'
-          ).then((m) => m.EmployeeItemComponentModule),
+          import('./employees/employee/employee-item.component-module').then(
+            (m) => m.EmployeeItemComponentModule
+          ),
       },
     ],
   },

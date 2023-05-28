@@ -1,9 +1,9 @@
 <div *ngFor="let task of taskListItems">
-  <app-card-item-checklist
+  <app-card-long-item
     [cardTitle]="task.name"
     [cardSubtitle]="task.dueDate | dueTime : true"
     [checkList]="task.checkList"
     [employee]="task.employees"
   >
-  </app-card-item-checklist>
+  </app-card-long-item>
 </div>

@@ -5,11 +5,11 @@ import {
 } from '@angular/core';
 import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { AppState } from '../state/app.state';
-import { loadEmployees } from '../state/store/employees/store/employees.actions';
-import { EmployeeListItemMapper } from '../shared/employees/mappers/employee-list-item.mapper';
-import { selectAllEmployees } from '../state/store/employees/store/employees.selectors';
-import { EmployeeItemModel } from '../shared/employees/models/employee-item.model';
+import { AppState } from '../../state/app.state';
+import { loadEmployees } from '../../state/store/employees/store/employees.actions';
+import { EmployeeListItemMapper } from '../../shared/employees/mappers/employee-list-item.mapper';
+import { selectAllEmployees } from '../../state/store/employees/store/employees.selectors';
+import { EmployeeItemModel } from '../../shared/employees/models/employee-item.model';
 
 @Component({
   selector: 'app-employees',

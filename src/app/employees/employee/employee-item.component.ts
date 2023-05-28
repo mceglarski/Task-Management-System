@@ -5,8 +5,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../../state/app.state';
-import { loadEmployees } from '../../../state/store/employees/store/employees.actions';
+import { AppState } from '../../state/app.state';
+import { loadEmployees } from '../../state/store/employees/store/employees.actions';
 import {
   BehaviorSubject,
   combineLatest,
@@ -18,23 +18,24 @@ import {
   takeUntil,
   tap,
 } from 'rxjs';
-import { EmployeeItemModel } from '../../../shared/employees/models/employee-item.model';
+import { EmployeeItemModel } from '../../shared/employees/models/employee-item.model';
 import {
   selectEmployeeById,
   selectEmployeesStatus,
-} from '../../../state/store/employees/store/employees.selectors';
-import { EmployeeListItemMapper } from '../../../shared/employees/mappers/employee-list-item.mapper';
-import { StatusTypes } from '../../../state/common/status.types';
+} from '../../state/store/employees/store/employees.selectors';
+import { EmployeeListItemMapper } from '../../shared/employees/mappers/employee-list-item.mapper';
+import { StatusTypes } from '../../state/common/status.types';
 import { ActivatedRoute } from '@angular/router';
 import {
   selectTeamsByMemberId,
   selectTeamsStatus,
-} from '../../../state/store/teams/store/teams.selectors';
-import { loadTeams } from '../../../state/store/teams/store/teams.actions';
-import { selectProjectsStatus } from '../../../state/store/projects/store/projects.selectors';
-import { loadProjects } from '../../../state/store/projects/store/projects.actions';
-import { TeamListItemMapper } from '../../../shared/teams/mappers/team-list-item.mapper';
-import { TeamMembersItemModel } from '../../../shared/teams/models/team-members-item.model';
+} from '../../state/store/teams/store/teams.selectors';
+import { loadTeams } from '../../state/store/teams/store/teams.actions';
+import { selectProjectsStatus } from '../../state/store/projects/store/projects.selectors';
+import { loadProjects } from '../../state/store/projects/store/projects.actions';
+import { TeamListItemMapper } from '../../shared/teams/mappers/team-list-item.mapper';
+import { TeamMembersItemModel } from '../../shared/teams/models/team-members-item.model';
+import { ProjectListItemModel } from '../../projects/models/project-list-item.model';
 
 @Component({
   selector: 'app-employee-item',
@@ -68,6 +69,16 @@ export class EmployeeItemComponent implements OnDestroy {
         .pipe(map(TeamListItemMapper.teamsModelToMemberItemMapper))
     )
   );
+
+  // public readonly projects$: Observable<ProjectListItemModel[]> = combineLatest(
+  //   [this._empId$]
+  // ).pipe(
+  //   switchMap(([empId]) =>
+  //     this._store
+  //       .select(selectTeamsByMemberId(empId))
+  //       .pipe(map(TeamListItemMapper.teamsModelToMemberItemMapper))
+  //   )
+  // );
 
   private _unsubscribe$ = new Subject<void>();
 

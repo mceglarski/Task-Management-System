@@ -1,15 +1,11 @@
 import { NgModule } from '@angular/core';
 import { ProjectsListComponent } from './projects-list.component';
 import { CommonModule } from '@angular/common';
-import { CardItemProgressComponentModule } from '../../../shared/core/components/card-item-progress/card-item-progress.component-module';
 import { DueTimeModule } from '../../../shared/core/pipes/due-time/due-time.module';
+import { CardItemWithChecklistComponentModule } from '../../../shared/core/components/card-item-with-checklist/card-item-with-checklist-component.module';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    CardItemProgressComponentModule,
-    DueTimeModule,
-  ],
+  imports: [CommonModule, DueTimeModule, CardItemWithChecklistComponentModule],
   declarations: [ProjectsListComponent],
   providers: [],
   exports: [ProjectsListComponent],
