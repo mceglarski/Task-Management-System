@@ -10,6 +10,7 @@ import { CardItemWithChecklistComponentModule } from '../../shared/core/componen
 import { ChecklistProgressModule } from '../../shared/core/pipes/checklist-progress/checklist-progress.module';
 import { DueTimeDaysModule } from '../../shared/core/pipes/due-time-days/due-time-days.module';
 import { AvatarHeaderComponentModule } from '../../shared/core/components/avatar-header/avatar-header-component.module';
+import { RedirectOnClickDirectiveModule } from '../../shared/core/directives/redirect-on-click/redirect-on-click.directive-module';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { AvatarHeaderComponentModule } from '../../shared/core/components/avatar
     ChecklistProgressModule,
     DueTimeDaysModule,
     AvatarHeaderComponentModule,
+    RedirectOnClickDirectiveModule,
   ],
   declarations: [EmployeeItemComponent],
   providers: [],

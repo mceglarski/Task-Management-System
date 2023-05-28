@@ -36,7 +36,6 @@ import {
   selectProjectsStatus,
 } from '../../state/store/projects/store/projects.selectors';
 import { loadProjects } from '../../state/store/projects/store/projects.actions';
-import { TeamListItemMapper } from '../../shared/teams/mappers/team-list-item.mapper';
 import { TeamMembersItemModel } from '../../shared/teams/models/team-members-item.model';
 import {
   selectAllTasks,
@@ -53,6 +52,7 @@ import { ProjectModel } from '../../state/models/project.model';
 import { TaskModel } from '../../state/models/task.model';
 import { CheckListModel } from '../../state/models/check-list.model';
 import { ProjectChecklistItemMapper } from '../../shared/projects/mappers/project-checklist-item.mapper';
+import { TeamMemberItemMapper } from '../../shared/teams/mappers/team-member-item.mapper';
 
 @Component({
   selector: 'app-employee-item',
@@ -83,7 +83,7 @@ export class EmployeeItemComponent implements OnDestroy {
     switchMap(([empId]) =>
       this._store
         .select(selectTeamsByMemberId(empId))
-        .pipe(map(TeamListItemMapper.teamsModelToMemberItemMapper))
+        .pipe(map(TeamMemberItemMapper.teamsModelToMemberItemsMapper))
     )
   );
 

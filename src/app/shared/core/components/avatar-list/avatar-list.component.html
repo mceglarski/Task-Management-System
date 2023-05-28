@@ -1,0 +1,7 @@
+<ul class="avatars" *ngIf="members">
+  <li *ngFor="let member of members">
+    <a redirectOnClick="/employee" [id]="member.id" data-toggle="tooltip" [title]="member.firstName">
+      <img [alt]="member | employeeTitle" class="avatar" [src]="member.avatarUrl"/>
+    </a>
+  </li>
+</ul>

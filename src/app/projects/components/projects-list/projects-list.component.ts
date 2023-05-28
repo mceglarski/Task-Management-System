@@ -4,7 +4,7 @@ import {
   Input,
   ViewEncapsulation,
 } from '@angular/core';
-import { ProjectListItemModel } from '../../models/project-list-item.model';
+import { ProjectListItemModel } from '../../../shared/projects/models/project-list-item.model';
 
 @Component({
   selector: 'app-projects-list',

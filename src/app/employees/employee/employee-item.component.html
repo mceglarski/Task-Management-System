@@ -48,6 +48,8 @@
           <div class="content-list-body row">
             <div class="col-md-6" *ngFor="let team of teams$ | async">
               <app-card-item
+                redirectOnClick="/teams"
+                [id]="team.id"
                 [cardTitle]="team.name"
                 [cardSubtitle]="team | teamItemDescription"
                 [members]="team.members"

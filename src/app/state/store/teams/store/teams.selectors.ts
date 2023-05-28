@@ -15,6 +15,11 @@ export const selectTeamsStatus = createSelector(
   (state: TeamsState) => state.status
 );
 
+export const selectTeamById = (id: string) =>
+  createSelector(selectTeams, (state: TeamsState) =>
+    state.teams.find((team: TeamModel) => team.id === id)
+  );
+
 export const selectTeamsByMemberId = (id: string) =>
   createSelector(selectTeams, (state: TeamsState) =>
     state.teams.filter((team: TeamModel) =>

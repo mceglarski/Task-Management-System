@@ -7,9 +7,9 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { AppState } from '../state/app.state';
 import { loadProjects } from '../state/store/projects/store/projects.actions';
-import { ProjectListItemModel } from './models/project-list-item.model';
+import { ProjectListItemModel } from '../shared/projects/models/project-list-item.model';
 import { selectAllProjects } from '../state/store/projects/store/projects.selectors';
-import { ProjectListItemMapper } from './mappers/project-list-item.mapper';
+import { ProjectListItemMapper } from '../shared/projects/mappers/project-list-item.mapper';
 
 @Component({
   selector: 'app-projects',
