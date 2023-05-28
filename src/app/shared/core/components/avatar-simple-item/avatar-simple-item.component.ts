@@ -6,13 +6,13 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-media-header',
-  styleUrls: ['./media-header.component.scss'],
-  templateUrl: './media-header.component.html',
+  selector: 'app-avatar-simple-item',
+  styleUrls: ['./avatar-simple-item.component.scss'],
+  templateUrl: './avatar-simple-item.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MediaHeaderComponent {
+export class AvatarSimpleItemComponent {
   @Input()
   title: string;
   @Input()
