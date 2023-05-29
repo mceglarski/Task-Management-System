@@ -20,12 +20,12 @@ export class CardLongItemComponent {
   @Input()
   public cardSubtitle: string;
   @Input()
-  public employee: (EmployeeTaskListItemModel | undefined)[];
+  public employee: EmployeeTaskListItemModel[];
   @Input()
-  public checkList: (ChecklistItemModel | undefined)[];
+  public checkList: ChecklistItemModel[];
 
   public calculateCheckListProgress(
-    checkListElements: (ChecklistItemModel | undefined)[]
+    checkListElements: ChecklistItemModel[]
   ): number {
     return (
       (checkListElements.filter((element) => element?.isDone).length /
@@ -35,7 +35,7 @@ export class CardLongItemComponent {
   }
 
   public getCheckListProgressClass(
-    checkListElements: (ChecklistItemModel | undefined)[]
+    checkListElements: ChecklistItemModel[]
   ): string {
     if (this.calculateCheckListProgress(checkListElements) === 100) {
       return 'bg-primary';
